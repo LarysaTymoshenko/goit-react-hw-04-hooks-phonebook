@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 30px;
+}
+.input {
+  margin-right: 10px;
+}
+
+.button {
+  border: 1px solid wheat;
+  border-radius: 10px;
+  background-color: transparent;
+  color: wheat;
+}
+.button:hover,
+.button:focus {
+  color: rgb(155, 155, 182);
+  border-color: rgb(108, 108, 231);
+  background-color: wheat;
+}
+.label {
+  display: block;
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 20px;
+}
