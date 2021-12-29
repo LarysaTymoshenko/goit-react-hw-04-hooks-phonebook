@@ -17,8 +17,8 @@ export default function App() {
   };
 
   const onAddContact = (name, number) => {
-    if (onCheckContact(name)) {
-      alert(`${name} is already in contacts`);
+    if (onCheckContact(name, number)) {
+      alert(`${name} and ${number} is already in contacts`);
       return;
     }
     const obj = { id: nanoid(), name, number };
