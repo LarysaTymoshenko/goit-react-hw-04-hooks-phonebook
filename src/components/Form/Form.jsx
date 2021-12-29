@@ -2,15 +2,23 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import s from "./Form.module.css";
 
-export default function Form({ onAddContact }) {
+export default function Form() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddContact(name, number);
-    setName("");
-    setNumber("");
+    const { name, value } = e.currentTarget;
+    switch (name) {
+      case "name":
+        setName(value);
+        break;
+      case "number":
+        setNumber(value);
+        break;
+      default:
+        return;
+    }
   };
 
   return (
@@ -56,5 +64,5 @@ export default function Form({ onAddContact }) {
 Form.protoType = {
   name: PropTypes.string.isRequired,
   number: PropTypes.number.isRequired,
-  onAddContact: PropTypes.func.isRequired,
+  // onAddContact: PropTypes.func.isRequired,
 };
