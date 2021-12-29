@@ -8,7 +8,8 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, value } = e.currentTarget;
+    const { name, value } = e.target;
+
     switch (name) {
       case "name":
         setName(value);

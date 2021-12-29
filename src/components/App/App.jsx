@@ -7,7 +7,7 @@ import Filter from "../Filter/Filter";
 import { getFromLS, setInLS } from "../../utilits/localstorage";
 
 export default function App() {
-  const [contacts, setContacts] = useState(getFromLS("contacts") ?? "");
+  const [contacts, setContacts] = useState(getFromLS("contacts"));
   const [filter, setFilter] = useState("");
 
   const onCheckContact = (value) => {
@@ -16,7 +16,7 @@ export default function App() {
       : false;
   };
 
-  const onAddContact = ({ name, number }) => {
+  const onAddContact = (name, number) => {
     if (onCheckContact(name)) {
       alert(`${name} and  is already in contacts`);
       return;
@@ -48,7 +48,7 @@ export default function App() {
       </Section>
       <Section title="Contact">
         <Filter filter={filter} onFilter={setFilter} />
-        <ListContacts contact={onFiltering} onDelete={onDeleteContacts} />
+        <ListContacts listContacts={onFiltering} onDelete={onDeleteContacts} />
       </Section>
     </>
   );
