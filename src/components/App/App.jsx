@@ -16,13 +16,13 @@ export default function App() {
       : false;
   };
 
-  const onAddContact = (name, number) => {
-    if (onCheckContact(name, number)) {
-      alert(`${name} and ${number} is already in contacts`);
+  const onAddContact = ({ name, number }) => {
+    if (onCheckContact(name)) {
+      alert(`${name} and  is already in contacts`);
       return;
     }
-    const obj = { id: nanoid(), name, number };
-    setContacts([...contacts, obj]);
+    const newContact = { id: nanoid(), name, number };
+    setContacts((contacts) => [newContact, ...contacts]);
   };
 
   const onDeleteContacts = (id) => {
