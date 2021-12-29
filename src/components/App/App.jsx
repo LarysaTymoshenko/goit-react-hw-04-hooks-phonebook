@@ -4,11 +4,10 @@ import Form from "../Form/Form";
 import Section from "../Section/Section";
 import ListContacts from "../ListContacts/ListContacts";
 import Filter from "../Filter/Filter";
+import { getFromLS, setInLS } from "../../utilits/localstorage";
 
 export default function App() {
-  const [contacts, setContacts] = useState(
-    JSON.parse(window.localStorage.getItem("contacts")) ?? ""
-  );
+  const [contacts, setContacts] = useState(getFromLS("contacts") ?? "");
   const [filter, setFilter] = useState("");
 
   const onCheckContact = (value) => {
@@ -40,7 +39,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    window.localStorage.setItem("contacts", JSON.stringify(contacts));
+    setInLS("contacts", contacts);
   }, [contacts]);
   return (
     <>
