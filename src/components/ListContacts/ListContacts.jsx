@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import ContactItem from "../ContactItem/ContactItem";
 import s from "./ListContact.module.css";
 
-const ListContacts = ({ listContacts = [], onDelete }) => {
+const ListContacts = ({ contacts = [], onDelete }) => {
   return (
     <>
       <ul>
-        {listContacts.map(({ id, name, number }) => (
+        {contacts.map(({ id, name, number }) => (
           <li key={id} className={s.item}>
             <ContactItem
               id={id}

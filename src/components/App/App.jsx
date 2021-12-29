@@ -48,7 +48,7 @@ export default function App() {
       </Section>
       <Section title="Contact">
         <Filter filter={filter} onFilter={setFilter} />
-        <ListContacts listContacts={onFiltering} onDelete={onDeleteContacts} />
+        <ListContacts contacts={onFiltering} onDelete={onDeleteContacts} />
       </Section>
     </>
   );
