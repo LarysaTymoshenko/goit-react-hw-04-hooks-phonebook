@@ -42,7 +42,7 @@ export default function App() {
   return (
     <>
       <Section title="Phonebook">
-        <Form onAddContact={onAddContact} />
+        <Form onSubmit={onAddContact} />
       </Section>
       <Section title="Contact">
         {contacts.length >= 2 && (
