@@ -11,9 +11,7 @@ export default function App() {
   const [filter, setFilter] = useState("");
 
   const onCheckContact = (value) => {
-    return contacts.find((el) => el.name.toUpperCase() === value.toUpperCase())
-      ? true
-      : false;
+    return contacts.find((el) => el.name.toUpperCase() === value.toUpperCase());
   };
 
   const onAddContact = (name, number) => {
@@ -33,8 +31,8 @@ export default function App() {
 
   const onFiltering = () => {
     const lowerCaseLetters = filter.toLowerCase().trim();
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(lowerCaseLetters)
+    return contacts.filter((contacts) =>
+      contacts.name.toLowerCase().includes(lowerCaseLetters)
     );
   };
 
@@ -44,11 +42,13 @@ export default function App() {
   return (
     <>
       <Section title="Phonebook">
-        <Form onSubmit={onAddContact} />
+        <Form onAddContact={onAddContact} />
       </Section>
       <Section title="Contact">
-        <Filter filter={filter} onFilter={setFilter} />
-        <ListContacts contacts={onFiltering} onDelete={onDeleteContacts} />
+        {contacts.length >= 2 && (
+          <Filter filter={filter} onFilter={setFilter} />
+        )}
+        <ListContacts contact={onFiltering} onDelete={onDeleteContacts} />
       </Section>
     </>
   );

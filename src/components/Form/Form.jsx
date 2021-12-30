@@ -2,29 +2,20 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import s from "./Form.module.css";
 
-export default function Form() {
+export default function Form({ onAddContact }) {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
-
-    switch (name) {
-      case "name":
-        setName(value);
-        break;
-      case "number":
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
+    onAddContact(name, number);
+    setName("");
+    setNumber("");
   };
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      <label htmlFor="name" className={s.label}>
+      <label className={s.label}>
         NAME
         <input
           className={s.input}
@@ -40,7 +31,7 @@ export default function Form() {
         />
         {""}
       </label>
-      <label htmlFor="name" className={s.label}>
+      <label className={s.label}>
         NUMBER
         <input
           type="tel"
