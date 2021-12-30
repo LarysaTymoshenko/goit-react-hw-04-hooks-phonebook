@@ -8,8 +8,9 @@ const ListContacts = ({ contacts = [], onDelete }) => {
     <>
       <ul>
         {contacts.map(({ id, name, number }) => (
-          <li key={id} className={s.item}>
+          <li key={id}>
             <ContactItem
+              className={s.item}
               id={id}
               name={name}
               number={number}

@@ -2,13 +2,13 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import s from "./Form.module.css";
 
-export default function Form({ onAddContact }) {
+export default function Form({ onSubmit }) {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddContact(name, number);
+    onSubmit(name, number);
     setName("");
     setNumber("");
   };

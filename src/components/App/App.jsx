@@ -29,12 +29,7 @@ export default function App() {
     }));
   };
 
-  const onFiltering = () => {
-    const lowerCaseLetters = filter.toLowerCase().trim();
-    return contacts.filter((contacts) =>
-      contacts.name.toLowerCase().includes(lowerCaseLetters)
-    );
-  };
+  //
 
   useEffect(() => {
     setInLS("contacts", contacts);
@@ -48,7 +43,7 @@ export default function App() {
         {contacts.length >= 2 && (
           <Filter filter={filter} onFilter={setFilter} />
         )}
-        <ListContacts contact={onFiltering} onDelete={onDeleteContacts} />
+        <ListContacts contacts={contacts} onDelete={onDeleteContacts} />
       </Section>
     </>
   );
